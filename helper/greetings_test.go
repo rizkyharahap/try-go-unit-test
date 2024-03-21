@@ -10,6 +10,21 @@ import (
 )
 
 /**
+* Before and After Unit Test
+* Can be add some action before or after run test with testing.M
+* This will be run per module test not each of test
+**/
+func TestMain(m *testing.M) {
+	// before
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run()
+
+	// after
+	fmt.Println("AFTER UNIT TEST")
+}
+
+/**
 * Testing with Fail
 * If fail the test still running until end of code
 **/
