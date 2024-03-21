@@ -122,3 +122,17 @@ func TestSkip(t *testing.T) {
 	result := Greetings("Rizki")
 	require.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
 }
+
+/**
+* Sub Test can be write test function inside test function
+**/
+func TestSubTest(t *testing.T) {
+	t.Run("Rizki", func(t *testing.T) {
+		result := Greetings("Rizki")
+		require.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
+	})
+	t.Run("Harahap", func(t *testing.T) {
+		result := Greetings("Harahap")
+		require.Equal(t, "Hello Harahap", result, "Result must be 'Hello Harahap'")
+	})
+}
