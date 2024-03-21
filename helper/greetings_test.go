@@ -183,3 +183,25 @@ func BenchmarkSubGreetings(b *testing.B) {
 		}
 	})
 }
+
+/**
+* Test table used for define data and test each of struct
+**/
+func BenchmarkTableGreetings(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{name: "Greetings(Rizki)", request: "Rizki"},
+		{name: "Greetings(Mahfuddin)", request: "Mahfuddin"},
+		{name: "Greetings(Harahap)", request: "Harahap"},
+	}
+
+	for _, benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				Greetings(benchmark.request)
+			}
+		})
+	}
+}
