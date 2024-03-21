@@ -3,6 +3,8 @@ package helper
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGreetingsFail(t *testing.T) {
@@ -13,7 +15,7 @@ func TestGreetingsFail(t *testing.T) {
 		t.Fail()
 	}
 
-	fmt.Println("TestGreetings Done")
+	fmt.Println("TestGreetingsFail Done")
 }
 
 func TestGreetingsFailNow(t *testing.T) {
@@ -24,7 +26,7 @@ func TestGreetingsFailNow(t *testing.T) {
 		t.FailNow()
 	}
 
-	fmt.Println("TestGreetings Done")
+	fmt.Println("TestGreetingsFailNow Done")
 }
 
 func TestGreetingsError(t *testing.T) {
@@ -35,7 +37,7 @@ func TestGreetingsError(t *testing.T) {
 		t.Error("Result must be 'Hello Rizki'")
 	}
 
-	fmt.Println("TestGreetings Done")
+	fmt.Println("TestGreetingsError Done")
 }
 
 func TestGreetingsFatal(t *testing.T) {
@@ -46,5 +48,11 @@ func TestGreetingsFatal(t *testing.T) {
 		t.Fatal("Result must be 'Hello Rizki'")
 	}
 
-	fmt.Println("TestGreetings Done")
+	fmt.Println("TestGreetingsFatal Done")
+}
+
+func TestGreetingsAssert(t *testing.T) {
+	result := Greetings("Rizki")
+	assert.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
+	fmt.Println("TestGreetingsAssert Done")
 }
