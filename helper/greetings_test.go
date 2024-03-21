@@ -7,6 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+/**
+* Testing with Fail
+* If fail the test still running until end of code
+**/
 func TestGreetingsFail(t *testing.T) {
 	result := Greetings("Rizki")
 
@@ -18,6 +22,11 @@ func TestGreetingsFail(t *testing.T) {
 	fmt.Println("TestGreetingsFail Done")
 }
 
+/**
+* Testing with FailNow
+* If fail the test function is end
+* line of code below failNow will not executed
+**/
 func TestGreetingsFailNow(t *testing.T) {
 	result := Greetings("Rizki")
 
@@ -29,6 +38,11 @@ func TestGreetingsFailNow(t *testing.T) {
 	fmt.Println("TestGreetingsFailNow Done")
 }
 
+/**
+* Testing with Error
+* If fail will be call t.Fail() with some agrs (optional)
+* If fail the test still running until end of code
+**/
 func TestGreetingsError(t *testing.T) {
 	result := Greetings("Rizki")
 
@@ -40,6 +54,12 @@ func TestGreetingsError(t *testing.T) {
 	fmt.Println("TestGreetingsError Done")
 }
 
+/**
+* Testing with Fatal
+* If fail will be call t.FailNow() with some agrs (optional)
+* If fail the test function is end
+* line of code below failNow will not executed
+**/
 func TestGreetingsFatal(t *testing.T) {
 	result := Greetings("Rizki")
 
@@ -51,6 +71,11 @@ func TestGreetingsFatal(t *testing.T) {
 	fmt.Println("TestGreetingsFatal Done")
 }
 
+/**
+* Testing with Assert
+* If fail will be call t.Fail() with some agrs (optional) and give some detail of errors
+* If fail the test still running until end of code
+**/
 func TestGreetingsAssert(t *testing.T) {
 	result := Greetings("Rizki")
 	assert.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
