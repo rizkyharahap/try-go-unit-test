@@ -167,3 +167,19 @@ func BenchmarkGreetings(b *testing.B) {
 		Greetings("Rizki")
 	}
 }
+
+/**
+* Sub Benchmark can be write benchmark function inside benchmark function
+**/
+func BenchmarkSubGreetings(b *testing.B) {
+	b.Run("Rizki", func(t *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Greetings("Rizki")
+		}
+	})
+	b.Run("Harahap", func(t *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Greetings("Harahap")
+		}
+	})
+}
