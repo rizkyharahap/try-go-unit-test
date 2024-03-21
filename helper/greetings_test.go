@@ -158,3 +158,12 @@ func TestTable(t *testing.T) {
 		})
 	}
 }
+
+/**
+* Benchmark for check code performance
+**/
+func BenchmarkGreetings(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Greetings("Rizki")
+	}
+}
