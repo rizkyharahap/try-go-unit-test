@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 /**
@@ -80,4 +81,16 @@ func TestGreetingsAssert(t *testing.T) {
 	result := Greetings("Rizki")
 	assert.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
 	fmt.Println("TestGreetingsAssert Done")
+}
+
+/**
+* Testing with Assert
+* If fail will be call t.FailNow() with some agrs (optional) and give some detail of errors
+* If fail the test function is end
+* line of code below failNow will not executed
+**/
+func TestGreetingsRequire(t *testing.T) {
+	result := Greetings("Rizki")
+	require.Equal(t, "Hello Rizki", result, "Result must be 'Hello Rizki'")
+	fmt.Println("TestGreetingsRequire Done")
 }
